@@ -1,7 +1,7 @@
 const quizId = localStorage.getItem("quizId");
 const mainDiv = document.getElementById("question_Div");
 
-const BaseServerUrl = `https://mock06-v9kb.onrender.com`;
+const BaseServerUrl = `https://wefb.onrender.com`;
 
 function fetchAndRenderQuestion() {
   fetch(`${BaseServerUrl}/quiz/${quizId}`)
