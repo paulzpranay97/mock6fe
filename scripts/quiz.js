@@ -1,28 +1,23 @@
 const quizId = localStorage.getItem("quizId");
 const mainDiv = document.getElementById("question_Div");
 
-const BaseServerUrl = `https://quizapp-backend-zqr0.onrender.com`
+const BaseServerUrl = `https://mock06-v9kb.onrender.com`;
 
-
-
-
-function fetchAndRenderQuestion(){
-    fetch(`${BaseServerUrl}/quiz/${quizId}`)
-    .then(res=>res.json())
-    .then((data)=>{
-        console.log(data.questions);
-        renderQuestion(data.questions)
-    })
+function fetchAndRenderQuestion() {
+  fetch(`${BaseServerUrl}/quiz/${quizId}`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data.questions);
+      renderQuestion(data.questions);
+    });
 }
 
-
-function renderQuestion(arr=[]){
-   mainDiv.innerHTML=null;
-//    let i =0;
-  for(let i=0;i<arr.length;i++){
-        const question = document.createElement("h5");
-    question.innerText=arr[i].title;
-
+function renderQuestion(arr = []) {
+  mainDiv.innerHTML = null;
+ 
+  for (let i = 0; i < arr.length; i++) {
+    const question = document.createElement("h5");
+    question.innerText = arr[i].title;
 
     const option1 = document.createElement("p");
 
@@ -38,13 +33,8 @@ function renderQuestion(arr=[]){
 
     option4.innerText = arr[i].answerOptions[3];
 
-    // const nextBtn = 
-
-
-    mainDiv.append(question,option1,option2,option3,option4)
-   }
+    mainDiv.append(question, option1, option2, option3, option4);
+  }
 }
-
-
 
 fetchAndRenderQuestion();
